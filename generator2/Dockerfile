@@ -12,5 +12,6 @@ ENTRYPOINT ["/start.sh"]
 USER root
 RUN sed -i 's/\/home\/jetty:\/sbin\/nologin/\/home\/jetty:\/bin\/sh/g' /etc/passwd
 VOLUME ["/var/lib/jetty/webapps/", "/opt/config/", "/var/lib/jetty/output/", "/var/lib/jetty/logs/", "/var/lib/jetty/data-gen/"]
+user jetty
 LABEL maintainer="david.baum@uni-leipzig.de" \
  version="1.0"
