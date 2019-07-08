@@ -6,7 +6,7 @@ RUN cd /opt && unzip jqassistant-commandline-neo4jv3-1.6.0-distribution.zip
 FROM jetty:9.4.12-jre8-alpine
 COPY --from=MAVEN_TOOL_CHAIN /opt/jqassistant-commandline-neo4jv3-1.6.0/ /opt/jqassistant/
 COPY start.sh /start.sh
-RUN mkdir -p /var/lib/jetty/data-gen/ && mkdir -p /var/lib/jetty/logs/ && mkdir -p /var/lib/jetty/output/ && chown -R jetty:jetty /var/lib/jetty/logs/ /var/lib/jetty/output/
+RUN mkdir -p /var/lib/jetty/data-gen/ && mkdir -p /var/lib/jetty/logs/ && mkdir -p /var/lib/jetty/output/ && chown -R jetty:jetty /var/lib/jetty/logs/ /var/lib/jetty/output/ /var/lib/jetty/data-gen/
 EXPOSE 8080
 ENTRYPOINT ["/start.sh"]
 USER root
