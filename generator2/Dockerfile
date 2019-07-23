@@ -2,7 +2,7 @@ FROM maven:3.6.0-jdk-8-alpine AS MAVEN_TOOL_CHAIN
 ADD https://jqassistant.org/wp-content/uploads/2018/12/jqassistant-commandline-neo4jv3-1.6.0-distribution.zip /opt/
 RUN cd /opt && unzip jqassistant-commandline-neo4jv3-1.6.0-distribution.zip
 ADD https://github.com/softvis-research/jqa-javascript-plugin/releases/download/0.0.1/jqassistant-javascript-plugin-0.0.1.jar /opt/jqassistant-commandline-neo4jv3-1.6.0/plugins
-RUN chmod 644 /opt/jqassistant/plugins/jqassistant-javascript-plugin-0.0.1.jar
+RUN chmod 644 /opt/jqassistant-commandline-neo4jv3-1.6.0/plugins/jqassistant-javascript-plugin-0.0.1.jar
 
 FROM jetty:9.4.12-jre8-alpine
 COPY --from=MAVEN_TOOL_CHAIN /opt/jqassistant-commandline-neo4jv3-1.6.0/ /opt/jqassistant/
